@@ -2,9 +2,9 @@ const joi = require("joi");
 const contacts = require("../../models/contacts");
 
 const contactsSchema = joi.object({
-  name: joi.string().min(3).required(),
-  email: joi.string().email().required(),
-  phone: joi.number().required(),
+  name: joi.string().min(3),
+  email: joi.string().email(),
+  phone: joi.number(),
 });
 
 const updateContact = async (req, res, next) => {

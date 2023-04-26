@@ -4,11 +4,12 @@ const contacts = require("../../models/contacts");
 const contactsSchema = joi.object({
   name: joi.string().min(3).required(),
   email: joi.string().email().required(),
-  phone: joi.number().required(),
+  phone: joi.string().required(),
 });
 
 const addContact = async (req, res, next) => {
   try {
+    // const {name, email, phone }
     const { error } = contactsSchema.validate(req.body);
     const schemaError = error;
     if (schemaError) {

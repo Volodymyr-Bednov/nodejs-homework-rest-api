@@ -9,7 +9,6 @@ const contactsSchema = joi.object({
 
 const addContact = async (req, res, next) => {
   try {
-    // const {name, email, phone }
     const { error } = contactsSchema.validate(req.body);
     const schemaError = error;
     if (schemaError) {

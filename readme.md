@@ -1,11 +1,5 @@
 ## sauser
 
-## Sfl2IGhrDHfTedXK
-
-33 mongodb+srv://sauser:Sfl2IGhrDHfTedXK@cluster0.gvdlpjp.mongodb.net/test
-
-## GoIT Node.js Course Template Homework
-
 Виконайте форк цього репозиторію для виконання домашніх завдань (2-6)
 Форк створить репозиторій на вашому http://github.com
 

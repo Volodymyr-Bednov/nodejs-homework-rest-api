@@ -3,8 +3,6 @@ const app = require("./app");
 
 require("dotenv").config();
 
-console.log(process.env);
-
 mongoose
   .connect(process.env.DB_HOST)
   .then(() => {

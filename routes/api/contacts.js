@@ -1,18 +1,19 @@
 const express = require("express");
 const controllers = require("../../controllers/contacts");
+const auth = require("../../middelwares/");
 
 const router = express.Router();
 
-router.get("/", controllers.listContacts);
+router.get("/", auth, controllers.listContacts);
 
-router.get("/:contactId", controllers.getContactById);
+router.get("/:contactId", auth, controllers.getContactById);
 
-router.post("/", controllers.addContact);
+router.post("/", auth, controllers.addContact);
 
-router.delete("/:contactId", controllers.removeContact);
+router.delete("/:contactId", auth, controllers.removeContact);
 
-router.put("/:contactId", controllers.updateContact);
+router.put("/:contactId", auth, controllers.updateContact);
 
-router.patch("/:contactId/favorite", controllers.updateStatusContact);
+router.patch("/:contactId/favorite", auth, controllers.updateStatusContact);
 
 module.exports = router;

@@ -1,33 +1,33 @@
-const Book = require("../../models/contacts/schema/contact");
+const Contact = require("../../models/contacts/schema/contact");
 
-const listContacts = async () => {
-  const data = await Book.find();
+const listContacts = async (owner) => {
+  const data = await Contact.find(owner).populate("owner", "email");
   return data || null;
 };
 
 const getContactById = async (contactId) => {
-  const result = await Book.findOne({ _id: contactId });
+  const result = await Contact.findOne({ _id: contactId });
   return result;
 };
 
 const removeContact = async (contactId) => {
-  const result = await Book.findOneAndRemove({ _id: contactId });
+  const result = await Contact.findOneAndRemove({ _id: contactId });
   return result;
 };
 
 const addContact = async (body) => {
-  const result = await Book.create(body);
+  const result = await Contact.create(body);
   return result;
 };
 
 const updateContact = async (contactId, body) => {
-  const result = await Book.findByIdAndUpdate({ _id: contactId }, body, {
+  const result = await Contact.findByIdAndUpdate({ _id: contactId }, body, {
     new: true,
   });
   return result;
 };
 const updateStatusContact = async (contactId, body) => {
-  const result = await Book.findByIdAndUpdate({ _id: contactId }, body, {
+  const result = await Contact.findByIdAndUpdate({ _id: contactId }, body, {
     new: true,
   });
   return result;

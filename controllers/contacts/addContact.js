@@ -10,7 +10,8 @@ const addContact = async (req, res, next) => {
       error.status = 400;
       throw error;
     }
-    const result = await contacts.addContact(req.body);
+    const { _id: owner } = req.user;
+    const result = await contacts.addContact({ ...req.body, owner });
 
     res.status(201).json(result);
   } catch (error) {

@@ -10,8 +10,12 @@ const updateContact = async (req, res, next) => {
       error.status = 400;
       throw error;
     }
-
-    const result = await contacts.updateContact(req.params.contactId, req.body);
+    const { userId } = req.user;
+    const result = await contacts.updateContact(
+      req.params.contactId,
+      req.body,
+      userId
+    );
     if (!result) {
       const error = new Error("Not found");
       error.status = 404;

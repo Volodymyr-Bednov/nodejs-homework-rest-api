@@ -5,13 +5,19 @@ const listContacts = async (owner) => {
   return data || null;
 };
 
-const getContactById = async (contactId) => {
-  const result = await Contact.findOne({ _id: contactId });
+const getContactById = async (contactId, userId) => {
+  const result = await Contact.findOne({
+    _id: contactId,
+    owner: { _id: { $eq: userId } },
+  });
   return result;
 };
 
-const removeContact = async (contactId) => {
-  const result = await Contact.findOneAndRemove({ _id: contactId });
+const removeContact = async (contactId, userId) => {
+  const result = await Contact.findOneAndRemove({
+    _id: contactId,
+    owner: { _id: { $eq: userId } },
+  });
   return result;
 };
 
@@ -20,16 +26,24 @@ const addContact = async (body) => {
   return result;
 };
 
-const updateContact = async (contactId, body) => {
-  const result = await Contact.findByIdAndUpdate({ _id: contactId }, body, {
-    new: true,
-  });
+const updateContact = async (contactId, body, userId) => {
+  const result = await Contact.findByIdAndUpdate(
+    { _id: contactId, owner: { _id: { $eq: userId } } },
+    body,
+    {
+      new: true,
+    }
+  );
   return result;
 };
-const updateStatusContact = async (contactId, body) => {
-  const result = await Contact.findByIdAndUpdate({ _id: contactId }, body, {
-    new: true,
-  });
+const updateStatusContact = async (contactId, body, userId) => {
+  const result = await Contact.findByIdAndUpdate(
+    { _id: contactId, owner: { _id: { $eq: userId } } },
+    body,
+    {
+      new: true,
+    }
+  );
   return result;
 };
 module.exports = {

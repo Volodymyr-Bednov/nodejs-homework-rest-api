@@ -1,6 +1,6 @@
 const express = require("express");
 const controllers = require("../../controllers/contacts");
-const auth = require("../../middelwares/");
+const { auth } = require("../../middelwares/");
 // const ownerVerification = require("../../middelwares/ownerVerification.js");
 
 const router = express.Router();

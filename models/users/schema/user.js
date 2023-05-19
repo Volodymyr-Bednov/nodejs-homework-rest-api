@@ -5,6 +5,10 @@ const users = new Schema({
     type: String,
     required: [true, "Set password for user"],
   },
+  avatarURL: {
+    type:String,
+    default:"default-user.jpg",
+  },
   email: {
     type: String,
     required: [true, "Email is required"],
@@ -15,7 +19,7 @@ const users = new Schema({
     enum: ["starter", "pro", "business"],
     default: "starter",
   },
-  token: String,
+  token: String, 
 });
 
 const User = model("user", users);

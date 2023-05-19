@@ -6,7 +6,7 @@ const user = require("../../models/users/users");
 
 const updateUserAvatar = async (req, res, next) => {
   const { filename } = req.file;
-  console.log("filename", filename);
+  // console.log("filename", filename);
   const { path: tmpPath } = req.file;
   const publicPath = path.join(__dirname, "../../public/avatars", filename);
   try {

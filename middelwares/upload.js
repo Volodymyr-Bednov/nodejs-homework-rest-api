@@ -2,14 +2,14 @@ const multer = require("multer");
 const path = require("path");
 
 const tempDir = path.join(__dirname, "../tmp");
-console.log("tempDir", tempDir);
+// console.log("tempDir", tempDir);
 
 const storage = multer.diskStorage({
   destination: (req, res, cb) => {
     cb(null, tempDir);
   },
   filename: (req, file, cb) => {
-    console.log("file", file);
+    // console.log("file", file);
     const { originalname } = file;
     const splitNameArr = originalname.split(".");
     cb(
@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
     );
   },
 });
-console.log("storage: ", storage);
+// console.log("storage: ", storage);
 
 const upload = multer({
   storage,

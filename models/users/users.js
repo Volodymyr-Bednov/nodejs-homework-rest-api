@@ -49,8 +49,7 @@ const loginUser = async (body) => {
 };
 
 const updateUserAvatar = async (userId, avatarURL) => {
-  console.log("updateUserAvatar: ", userId, " || ", avatarURL);
-
+  // console.log("updateUserAvatar: ", userId, " || ", avatarURL);
   const result = await User.findByIdAndUpdate(
     { _id: userId },
     { avatarURL: avatarURL },
@@ -59,7 +58,7 @@ const updateUserAvatar = async (userId, avatarURL) => {
     }
   );
 
-  console.log("users-updateUserAvatar: ", result);
+  // console.log("users-updateUserAvatar: ", result);
   return result;
 };
 

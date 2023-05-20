@@ -5,6 +5,10 @@ const users = new Schema({
     type: String,
     required: [true, "Set password for user"],
   },
+  avatarURL: {
+    type: String,
+    default: "",
+  },
   email: {
     type: String,
     required: [true, "Email is required"],

@@ -1,5 +1,4 @@
-
-const updateUserAvatar= require("./updateUserAvatar")
+const updateUserAvatar = require("./updateUserAvatar");
 
 module.exports = {
   updateUserAvatar,
